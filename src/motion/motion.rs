@@ -34,12 +34,12 @@ pub trait KeysMotionMouseDirection {
         // If there's Some(input) value inside self.input, unwrap it
         if let Some(input) = input_param { 
             // Control the vertical motion
-            if Input::is_action_pressed( input, keybinding.get_up_keybinding() ) 
-                && !Input::is_action_pressed( input, keybinding.get_down_keybinding() ) {
+            if Input::is_action_pressed( input, keybinding.get_up_keybinding(), false ) 
+                && !Input::is_action_pressed( input, keybinding.get_down_keybinding(), false ) {
                 motion.y -= player_config.get_move_speed();
             }
-            else if Input::is_action_pressed( input, keybinding.get_down_keybinding() ) 
-                && !Input::is_action_pressed( input, keybinding.get_up_keybinding() ) {
+            else if Input::is_action_pressed( input, keybinding.get_down_keybinding(), false ) 
+                && !Input::is_action_pressed( input, keybinding.get_up_keybinding(), false ) {
                 motion.y += player_config.get_move_speed();
             }
             else {
@@ -47,12 +47,12 @@ pub trait KeysMotionMouseDirection {
             }
 
             // Control the horizontal motion
-            if Input::is_action_pressed( input, keybinding.get_left_keybinding() ) 
-                && !Input::is_action_pressed( input, keybinding.get_right_keybinding() ) {
+            if Input::is_action_pressed( input, keybinding.get_left_keybinding(), false ) 
+                && !Input::is_action_pressed( input, keybinding.get_right_keybinding(), false ) {
                 motion.x -= player_config.get_move_speed();
             }
-            else if Input::is_action_pressed( input, keybinding.get_right_keybinding() ) 
-                && !Input::is_action_pressed( input, keybinding.get_left_keybinding() ) {
+            else if Input::is_action_pressed( input, keybinding.get_right_keybinding(), false ) 
+                && !Input::is_action_pressed( input, keybinding.get_left_keybinding(), false ) {
                 motion.x += player_config.get_move_speed();
             }
             else {
