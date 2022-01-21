@@ -5,3 +5,6 @@ edition = "2021"
 
 [dependencies]
 gdnative = { git = "https://github.com/godot-rust/godot-rust" }
+
+[lib]
+crate-type = ["cdylib"]
