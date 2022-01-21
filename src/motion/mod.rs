@@ -1,1 +1,1 @@
-pub mod motion2d;
+pub mod motion;
