@@ -48,6 +48,10 @@ pub struct MotionKeybindings<'a> {
 }
 
 impl<'a> MotionKeybindings<'a> {
+    pub fn new(up: &'a str, down: &'a str, left: &'a str, right: &'a str) -> Self {
+        Self { up: up, down: down, left: left, right: right }
+    }
+
     pub fn get_up_keybinding(&self) -> &'a str {
         self.up
     }
