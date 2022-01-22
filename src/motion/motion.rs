@@ -51,7 +51,7 @@ pub trait KeysMotionMouseDirection {
                 new_motion.y = (motion.y + player_config.move_speed).clamp(0.0, player_config.max_speed);
         }
         else {
-            new_motion.y = 0.0;
+            new_motion.y = Vector2::linear_interpolate(motion, new_motion, player_config.friction).y;
         }
 
         // Control the horizontal motion
@@ -64,7 +64,7 @@ pub trait KeysMotionMouseDirection {
                 new_motion.x = (motion.x + player_config.move_speed).clamp( 0.0, player_config.max_speed);
         }
         else {
-            new_motion.x = 0.0;
+            new_motion.x = Vector2::linear_interpolate(motion, new_motion, player_config.friction).x;
         }
 
         // Returns the result of the computation
