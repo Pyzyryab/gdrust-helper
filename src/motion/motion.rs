@@ -21,6 +21,8 @@ use crate::config::{
 pub trait KeysMotionMouseDirection {
     fn move_character(
         self: &Self,
+        owner: &KinematicBody2D,
+        motion: Vector2,
         // TODO The next two params should be contained on a bigger struct, 'cause the game config 
         // probably will increase the number of structs needed to hold it's various configurations.
         // So, having just one, for example, `game_config: GameConfiguration` struct that will hold
@@ -34,35 +36,38 @@ pub trait KeysMotionMouseDirection {
 
         // Allocate variables to track the actual motion based on an input received
         let input: &Input = Input::godot_singleton();
-        let mut motion: Vector2 = Vector2::ZERO;
+        let mut new_motion: Vector2 = Vector2::ZERO;
+
+        // Moves the character body to facing the direction where the mouse global position indicates
+        owner.look_at(owner.get_global_mouse_position());
 
         // Control the vertical motion
         if Input::is_action_pressed( input, keybinding.up, false ) 
             && !Input::is_action_pressed( input, keybinding.down, false ) {
-            motion.y -= player_config.move_speed;
+                new_motion.y = (motion.y - player_config.move_speed).clamp(-player_config.max_speed, 0.0);
         }
         else if Input::is_action_pressed( input, keybinding.down, false ) 
             && !Input::is_action_pressed( input, keybinding.up, false ) {
-            motion.y += player_config.move_speed;
+                new_motion.y = (motion.y + player_config.move_speed).clamp(0.0, player_config.max_speed);
         }
         else {
-            motion.y = 0.0;
+            new_motion.y = 0.0;
         }
 
         // Control the horizontal motion
         if Input::is_action_pressed( input, keybinding.left, false ) 
             && !Input::is_action_pressed( input, keybinding.right, false ) {
-            motion.x -= player_config.move_speed;
+                new_motion.x = (motion.x - player_config.move_speed).clamp(-player_config.max_speed, 0.0);
         }
         else if Input::is_action_pressed( input, keybinding.right, false ) 
             && !Input::is_action_pressed( input, keybinding.left, false ) {
-            motion.x += player_config.move_speed;
+                new_motion.x = (motion.x + player_config.move_speed).clamp( 0.0, player_config.max_speed);
         }
         else {
-            motion.x = 0.0;
+            new_motion.x = 0.0;
         }
 
         // Returns the result of the computation
-        motion
+        new_motion
     }
 }
