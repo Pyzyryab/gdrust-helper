@@ -13,7 +13,7 @@
 /// ```
 /// the original value it's always a constant value.
 pub struct CharacterConfiguration {
-    pub MOVE_SPEED: f32,
-    pub MAX_SPEED: f32,
-    pub FRICTION: f32
+    pub move_speed: f32,
+    pub max_speed: f32,
+    pub friction: f32
 }

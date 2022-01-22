@@ -37,26 +37,26 @@ pub trait KeysMotionMouseDirection {
         let mut motion: Vector2 = Vector2::ZERO;
 
         // Control the vertical motion
-        if Input::is_action_pressed( input, keybinding.UP, false ) 
-            && !Input::is_action_pressed( input, keybinding.DOWN, false ) {
-            motion.y -= player_config.MOVE_SPEED;
+        if Input::is_action_pressed( input, keybinding.up, false ) 
+            && !Input::is_action_pressed( input, keybinding.down, false ) {
+            motion.y -= player_config.move_speed;
         }
-        else if Input::is_action_pressed( input, keybinding.DOWN, false ) 
-            && !Input::is_action_pressed( input, keybinding.UP, false ) {
-            motion.y += player_config.MOVE_SPEED;
+        else if Input::is_action_pressed( input, keybinding.down, false ) 
+            && !Input::is_action_pressed( input, keybinding.up, false ) {
+            motion.y += player_config.move_speed;
         }
         else {
             motion.y = 0.0;
         }
 
         // Control the horizontal motion
-        if Input::is_action_pressed( input, keybinding.LEFT, false ) 
-            && !Input::is_action_pressed( input, keybinding.RIGHT, false ) {
-            motion.x -= player_config.MOVE_SPEED;
+        if Input::is_action_pressed( input, keybinding.left, false ) 
+            && !Input::is_action_pressed( input, keybinding.right, false ) {
+            motion.x -= player_config.move_speed;
         }
-        else if Input::is_action_pressed( input, keybinding.RIGHT, false ) 
-            && !Input::is_action_pressed( input, keybinding.LEFT, false ) {
-            motion.x += player_config.MOVE_SPEED;
+        else if Input::is_action_pressed( input, keybinding.right, false ) 
+            && !Input::is_action_pressed( input, keybinding.left, false ) {
+            motion.x += player_config.move_speed;
         }
         else {
             motion.x = 0.0;

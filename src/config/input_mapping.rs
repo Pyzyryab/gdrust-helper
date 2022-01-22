@@ -41,8 +41,8 @@
 /// 
 /// This struct provides `read-only` access to it's data members.
 pub struct MotionKeybindings<'a> {
-    pub UP: &'a str,
-    pub DOWN: &'a str,
-    pub LEFT: &'a str,
-    pub RIGHT: &'a str,
+    pub up: &'a str,
+    pub down: &'a str,
+    pub left: &'a str,
+    pub right: &'a str,
 }
