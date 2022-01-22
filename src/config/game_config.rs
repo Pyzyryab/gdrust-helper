@@ -12,24 +12,8 @@
 /// let move_speed_bonus = character_config.get_move_speed() * 2;
 /// ```
 /// the original value it's always a constant value.
-/// 
-/// This struct provides `read-only` access level to it's data.
 pub struct CharacterConfiguration {
-    move_speed: f32,
-    max_speed: f32,
-    friction: f32
-}
-
-impl CharacterConfiguration {
-    pub fn get_move_speed(&self) -> f32 {
-        self.move_speed
-    }
-    
-    pub fn get_max_speed(&self) -> f32 {
-        self.max_speed
-    }
-
-    pub fn get_friction(&self) -> f32 {
-        self.friction
-    }
+    pub MOVE_SPEED: f32,
+    pub MAX_SPEED: f32,
+    pub FRICTION: f32
 }

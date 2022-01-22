@@ -41,30 +41,8 @@
 /// 
 /// This struct provides `read-only` access to it's data members.
 pub struct MotionKeybindings<'a> {
-    up: &'a str,
-    down: &'a str,
-    left: &'a str,
-    right: &'a str,
-}
-
-impl<'a> MotionKeybindings<'a> {
-    pub fn new(up: &'a str, down: &'a str, left: &'a str, right: &'a str) -> Self {
-        Self { up: up, down: down, left: left, right: right }
-    }
-
-    pub fn get_up_keybinding(&self) -> &'a str {
-        self.up
-    }
-
-    pub fn get_down_keybinding(&self) -> &'a str {
-        self.down
-    }
-
-    pub fn get_left_keybinding(&self) -> &'a str {
-        self.left
-    }
-
-    pub fn get_right_keybinding(&self) -> &'a str {
-        self.right
-    }
+    pub UP: &'a str,
+    pub DOWN: &'a str,
+    pub LEFT: &'a str,
+    pub RIGHT: &'a str,
 }
